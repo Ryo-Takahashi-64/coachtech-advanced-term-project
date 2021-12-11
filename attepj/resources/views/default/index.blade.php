@@ -28,7 +28,7 @@
       </div>
       <nav class="nav__sp" id="nav">
         <ul class="nav__sp__list">
-          <li<a href="/">ホーム</a></li>
+          <li><a href="/">ホーム</a></li>
           <li><a href="/attendance">日付一覧</a></li>
           <li><a href="/logout">ログアウト</a></li>
         </ul>
@@ -42,6 +42,6 @@
     <small class="small">Atte, inc.</small>
   </footer>
   <script src="{{asset('js/index.js')}}"></script>
-
+  @stack('js')
 </body>
 </html>

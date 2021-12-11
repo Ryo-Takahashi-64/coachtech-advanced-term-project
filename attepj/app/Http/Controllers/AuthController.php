@@ -31,7 +31,6 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        // return view('stamp');
         return redirect('/');
     }
 

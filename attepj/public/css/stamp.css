@@ -1,0 +1,32 @@
+.stamp__item {
+    margin: 0 10%;
+    text-align: center;
+}
+
+.name__item {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 30px;
+}
+
+.button__item {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.attendance__button {
+    width: 48%;
+    font-size: 20px;
+    font-weight: bold;
+    background: #fff;
+    margin-bottom: 30px;
+    padding: 100px 0;
+}
+
+@media screen and (max-width: 768px) {
+    .attendance__button {
+        width: 100%;
+        padding: 40px 0;
+    }
+}

@@ -18,6 +18,10 @@ use App\Http\Controllers\RestController;
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/',[AttendanceController::class, 'getIndex'])->name('stamp');
     Route::get('/attendance',[AttendanceController::class, 'getAttendance'])->name('attendance');
+    Route::get('/attendance/start',[AttendanceController::class, 'startAttendance'])->name('attendance.start');
+    Route::get('/attendance/end',[AttendanceController::class, 'endAttendance'])->name('attendance.end');
+    Route::get('/break/start',[RestController::class, 'startRest'])->name('rest.start');
+    Route::get('/break/end',[RestController::class, 'endRest'])->name('rest.end');
 });
 
 require __DIR__.'/auth.php';
