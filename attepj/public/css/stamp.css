@@ -1,12 +1,5 @@
 .stamp__item {
     margin: 0 10%;
-    text-align: center;
-}
-
-.name__item {
-    font-weight: bold;
-    font-size: 20px;
-    padding: 30px;
 }
 
 .button__item {
@@ -19,14 +12,26 @@
     width: 48%;
     font-size: 20px;
     font-weight: bold;
+    text-align: center;
     background: #fff;
-    margin-bottom: 30px;
-    padding: 100px 0;
+    margin-bottom: 20px;
+    padding: 80px 0;
 }
 
-@media screen and (max-width: 768px) {
+.disabled__item {
+    pointer-events: none;
+    color: #ddd;
+}
+
+@media screen and (max-width: 640px) {
     .attendance__button {
+        display: block;
         width: 100%;
-        padding: 40px 0;
+        padding: 10% 0;
+        margin-bottom: 15px;
+    }
+
+    .thanks__item {
+        display: none;
     }
 }

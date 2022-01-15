@@ -1,3 +1,4 @@
+/* 共通部品：全体 */
 a {
     text-decoration: none;
 }
@@ -9,20 +10,27 @@ button:hover {
 }
 
 body {
-    width: 100vw;
-    height: 100vh;
+    background-color: #eee;
 }
 
 li {
     list-style: none;
 }
 
+.flex_container {
+    position: relative;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* 共通部品：ヘッダ */
 .header__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.5rem 1.75rem;
     font-weight: bold;
+    background-color: #fff;
 }
 
 .header__title {
@@ -45,7 +53,25 @@ li {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+/* 共通部品：名前 */
+.name__item {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+
+/* 共通部品：フッタ */
+footer {
+    width: 100%;
+    background-color: #fff;
+    text-align: center;
+    padding: 0.5rem 0;
+    position: absolute;
+    bottom: 0;
+}
+
+@media screen and (max-width: 640px) {
     .nav__pc {
         display: none;
     }
@@ -120,15 +146,11 @@ li {
     .in {
         transform: translateX(100%);
     }
-}
 
-.main {
-    background-color: #eee;
-    height: 85vh;
-}
-/* block text-center py-2 */
-.small {
-    display: block;
-    text-align: center;
-    padding: 0.5rem 0;
+    .name__item {
+        text-align: center;
+        font-weight: bold;
+        font-size: 1.25rem;
+        padding: 5%;
+    }
 }

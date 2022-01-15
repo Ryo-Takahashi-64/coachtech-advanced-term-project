@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Carbon\Carbon;
 
 class User extends Authenticatable
 {
@@ -41,4 +42,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * 勤怠情報テーブル(前日・当日情報)取得
+    */
+    public function attendances()
+    {
+        return $this->hasOne('App\Models\Attendance');
+    }
+
+    /**
+     * 休憩情報テーブル(前日・当日情報)取得
+    */
+    public function rests()
+    {
+        return $this->hasMany('App\Models\Rest');
+    }
 }

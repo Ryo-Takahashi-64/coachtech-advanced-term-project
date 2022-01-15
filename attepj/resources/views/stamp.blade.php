@@ -6,16 +6,21 @@
 
 @section('content')
   <div class="stamp__item">
-    <h2 class="name__item">{{Str::limit($user->name,10)}}さんお疲れ様です！</h2>
+    <h2 class="name__item">{{Str::limit($user->name,20)}}さん<span class="thanks__item">お疲れ様です！</span></h2>
     <div class="button__item">
-      <button class="attendance__button" id="atte__start" type="button" onclick="location.href='{{route('attendance.start')}}'">勤怠開始</button>
-      <button class="attendance__button" id="atte__end" type="button" onclick="location.href='{{route('attendance.end')}}'">勤怠終了</button>
-      <button class="attendance__button" id="rest__start" type="button" onclick="location.href='{{route('rest.start')}}'">休憩開始</button>
-      <button class="attendance__button" id="rest__end" type="button" onclick="location.href='{{route('rest.end')}}'">休憩終了</button>
+      <a class="attendance__button" id="atte__start" href="{{route('attendance.start')}}">勤怠開始</a>
+      <a class="attendance__button" id="atte__end" href="{{route('attendance.end')}}">勤怠終了</a>
+      <a class="attendance__button" id="rest__start" href="{{route('rest.start')}}">休憩開始</a>
+      <a class="attendance__button" id="rest__end" href="{{route('rest.end')}}">休憩終了</a>
     </div>
   </div>
 @endsection
 
 @push('js')
+  <script>
+    window.Laravel = {}
+    window.Laravel.atte_flg = @json($atte_flg);
+    window.Laravel.rest_flg = @json($rest_flg);
+  </script>
   <script src="{{asset('js/stamp.js')}}"></script>
 @endpush
