@@ -39,7 +39,6 @@ function dateChange() {
   if (timeDiffS < 0) {
     timeDiffS += 24 * 60 * 60;
   }
-
   // timeDiffS秒後に画面をリロード(日付変更処理実行)
   setTimeout("location.reload()", timeDiffS * 1000);
 }

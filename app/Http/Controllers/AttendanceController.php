@@ -62,6 +62,9 @@ class AttendanceController extends Controller
                         'work_start_time' => $startHis,
                     ];
                     $user->attendances()->create($data);
+
+                    // 勤務中フラグを更新
+                    $atte_flg = '1';
                 }
             } else {
                 if ((isset($beforeAttendance['work_end_time'])? $beforeAttendance->work_end_time : null) !== null) {
@@ -75,6 +78,9 @@ class AttendanceController extends Controller
                         'work_start_time' => $startHis,
                     ];
                     $user->attendances()->create($data);
+
+                    // 勤務中フラグを更新
+                    $atte_flg = '1';
                 }
             }
         }

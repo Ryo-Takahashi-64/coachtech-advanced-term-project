@@ -25,8 +25,8 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:191',
-            'email' => 'required|string|email|max:191|unique:Users,email',
-            'password' => 'required|confirmed|between:8,191',
+            'email' => 'required|string|email:rfc|regex:/^[a-z0-9@.]+$/|max:191|unique:Users,email',
+            'password' => 'required|regex:/^[!-~]+$/|confirmed|between:8,191',
         ];
     }
 
@@ -37,11 +37,13 @@ class RegisterRequest extends FormRequest
             'name.string' => '名前は数値以外で入力してください',
             'name.max' => '名前は191文字以内で入力してください',
             'email.required' => 'メールアドレスを入力してください',
+            'email.regex' => 'メールアドレスは半角英小文字と数字、.(ドット)で入力してください',
             'email.email' => 'メールアドレス形式で入力してください',
             'email.string' => 'メールアドレスは数値以外で入力してください',
             'email.max' => 'メールアドレスは191文字以内で入力してください',
             'email.unique' => 'このメールアドレスは既に登録されている為、登録できません',
             'password.required' => 'パスワードを入力してください',
+            'password.regex' => 'パスワードは半角英数字記号で入力してください',
             'password.confirmed' => 'パスワードと確認用パスワードは一致させてください',
             'password.between' => 'パスワードは8文字以上、191文字以内で入力してください',
         ];
