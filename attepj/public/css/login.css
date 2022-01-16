@@ -1,0 +1,17 @@
+.nav__pc {
+    display: none;
+}
+
+@media screen and (max-width: 640px) {
+    .menu {
+        display: none;
+    }
+
+    .nav__sp {
+        display: none;
+    }
+
+    .content__item {
+        width: 80%;
+    }
+}
