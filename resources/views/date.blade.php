@@ -8,11 +8,11 @@
     <h2 class="name__item">{{Str::limit($user->name,20)}}さん</h2>
     <div class="date__change__item">
       <div class="date__link__item">
-        <a href="{{route('attendance',['ymItem' => $ymItem, 'ymRequest' => 'back'])}}"><</a>
+        <a id="back__item" href="{{route('attendance',['ymItem' => $ymItem, 'ymRequest' => 'back'])}}"><</a>
       </div>
       <h2 class="date__item">{{$ymItem}}</h2>
       <div class="date__link__item">
-        <a href="{{route('attendance',['ymItem' => $ymItem, 'ymRequest' => 'next'])}}">></a>
+        <a id="next__item" href="{{route('attendance',['ymItem' => $ymItem, 'ymRequest' => 'next'])}}">></a>
       </div>
     </div>
     <table>
@@ -37,3 +37,13 @@
     </table>
     {{$atteList->appends(request()->input())->links()}}
 @endsection
+
+@push('js')
+  <script>
+    window.Laravel = {}
+    window.Laravel.oldestYmFlg = @json($oldestYmFlg);
+    window.Laravel.latestYmFlg = @json($latestYmFlg);
+  </script>
+  <script src="{{asset('js/date.js')}}"></script>
+@endpush
+

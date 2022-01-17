@@ -71,6 +71,11 @@ footer {
     bottom: 0;
 }
 
+/* aタグ非活性制御 */
+.disabled__item {
+    pointer-events: none;
+}
+
 @media screen and (max-width: 640px) {
     .nav__pc {
         display: none;

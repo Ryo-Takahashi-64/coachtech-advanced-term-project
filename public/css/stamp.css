@@ -18,8 +18,8 @@
     padding: 80px 0;
 }
 
+/* aタグ非活性制御 個別設定 */
 .disabled__item {
-    pointer-events: none;
     color: #ddd;
 }
 

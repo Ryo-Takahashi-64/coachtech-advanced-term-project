@@ -232,11 +232,21 @@ class AttendanceController extends Controller
             ->orderBy('a.attendance_date')
             ->paginate(5);
 
+        // 最も古い勤怠の年月を取得
+        $oldAtteYm = $user::select(DB::raw("date_format(min(attendance_date), '%Y-%m') as oldAtteYm"))
+            ->from('attendances')
+            ->get();
+        // ボタン活性制御判定
+        $oldestYmFlg = $ymItem === $oldAtteYm[0]['oldAtteYm'] ? '1' : '0';  // 最も古い勤怠の年月の場合1、その他の場合0
+        $latestYmFlg = $ymItem === $nowYm ? '1' : '0';      // 当年月の場合1、その他の場合0
+
         // 戻り値設定
         $param = [
             'user' => $user,
             'ymItem' => $ymItem,
             'atteList' => $atteList,
+            'oldestYmFlg' => $oldestYmFlg,
+            'latestYmFlg' => $latestYmFlg,
         ];
 
         return view('date',$param);
