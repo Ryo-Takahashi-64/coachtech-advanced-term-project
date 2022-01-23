@@ -28,5 +28,9 @@ COACHTECH advancedターム　勤怠管理システム「Atte(アット)」
         * ログインしたユーザの月毎の勤怠一覧を表示します。
         * 初期表示は当月の一覧です。
 
+## 環境
+* Laravel Framework 8.76.2
+* mysql  Ver 15.1
+
 ## 文責
 * 作成者：高橋諒
