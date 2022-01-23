@@ -42,7 +42,7 @@
 
             <!-- Confirm Password -->
             <div class="mt-6">
-                <x-input id="password_confirmation" type="password" name="password_confirmation" placeholder="確認用メールアドレス" required />
+                <x-input id="password_confirmation" type="password" name="password_confirmation" placeholder="確認用パスワード" required />
             </div>
 
             <x-button>

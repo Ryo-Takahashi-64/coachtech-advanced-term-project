@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\Attendance;
 use Carbon\Carbon;
 
 class AttendanceController extends Controller
@@ -195,9 +196,7 @@ class AttendanceController extends Controller
     public function getAttendance(Request $request)
     {
         // 変数を取得
-        $nowYmd = Carbon::now()->format('Y-m-d');  // 当日日付
         $nowYm = Carbon::now()->format('Y-m');  // 当年月
-        $nowHis = Carbon::now()->format('H:i:s');  // 現在時刻
         $user = Auth::user();
 
         // 画面表示の取得する年月を設定
@@ -233,27 +232,90 @@ class AttendanceController extends Controller
             ->paginate(5);
 
         // 最も古い勤怠の年月を取得
-        $oldAtteYm = $user::select(DB::raw("date_format(min(attendance_date), '%Y-%m') as oldAtteYm"))
+        $attendance_date = $user::select(DB::raw("date_format(min(attendance_date), '%Y-%m') as oldAtteYm"))
             ->from('attendances')
             ->where('user_id', $user->id)
             ->get();
         // ボタン活性制御判定
         if(empty($oldAtteYm[0]['oldAtteYm']) ) {
-            $oldestYmFlg = '1';
+            $oldestFlg = '1';
         } else {
-            $oldestYmFlg = $ymItem === $oldAtteYm[0]['oldAtteYm'] ? '1' : '0';  // 最も古い勤怠の年月の場合1、その他の場合0
+            $oldestFlg = $ymItem === $oldAtteYm[0]['oldAtteYm'] ? '1' : '0';  // 最も古い勤怠の年月の場合1、その他の場合0
         }
-        $latestYmFlg = $ymItem === $nowYm ? '1' : '0';      // 当年月の場合1、その他の場合0
+        $latestFlg = $ymItem === $nowYm ? '1' : '0';      // 当年月の場合1、その他の場合0
 
         // 戻り値設定
         $param = [
             'user' => $user,
             'ymItem' => $ymItem,
             'atteList' => $atteList,
-            'oldestYmFlg' => $oldestYmFlg,
-            'latestYmFlg' => $latestYmFlg,
+            'oldestFlg' => $oldestFlg,
+            'latestFlg' => $latestFlg,
         ];
 
         return view('date',$param);
+    }
+
+    public function getUserAttendance(Request $request)
+    {
+        // 変数を取得
+        $nowYmd = Carbon::now()->format('Y-m-d');  // 当日日付
+        $user = Auth::user();
+
+        // 画面表示の取得する年月を設定
+        if($request->ymdRequest === 'back') {
+            $ymdItem = Carbon::parse($request->ymdItem)->subDay(1)->format('Y-m-d');
+        } elseif ($request->ymdRequest === 'next') {
+            $ymdItem = Carbon::parse($request->ymdItem)->addDay(1)->format('Y-m-d');
+        } else {
+            $ymdItem = $nowYmd;
+        }
+
+        // ページネーション表示データ取得
+        $atteList = $user::select([
+                'u.name',
+                'a.work_start_time',
+                'a.work_end_time',
+                DB::raw('sec_to_time(sum(time_to_sec(timediff(r.break_end_time,r.break_start_time)))) as total_break_time'),
+                DB::raw('timediff(a.work_end_time, a.work_start_time) as total_work_time'),
+            ])
+            ->from('users as u')
+            ->Join('attendances as a', function($join) {
+                $join->on('u.id', '=', 'a.user_id');
+            })
+            ->leftJoin('rests as r', function($join) {
+                $join->on('a.attendance_date', '=', 'r.attendance_date');
+                $join->on('a.user_id', '=', 'r.user_id');
+            })
+            ->where('a.attendance_date', $ymdItem)
+            ->groupBy([
+                'u.name',
+                'a.work_start_time',
+                'a.work_end_time',
+            ])
+            ->orderBy('u.name')
+            ->paginate(5);
+
+        // 最も古い勤怠の年月を取得
+        $oldAtteYmd = Attendance::min('attendance_date');
+
+        // ボタン活性制御判定
+        if(empty($oldAtteYmd) ) {
+            $oldestFlg = '1';
+        } else {
+            $oldestFlg = $ymdItem === $oldAtteYmd ? '1' : '0';  // 最も古い勤怠の年月の場合1、その他の場合0
+        }
+        $latestFlg = $ymdItem === $nowYmd ? '1' : '0';      // 当年月の場合1、その他の場合0
+
+        // 戻り値設定
+        $param = [
+            'user' => $user,
+            'ymdItem' => $ymdItem,
+            'atteList' => $atteList,
+            'oldestFlg' => $oldestFlg,
+            'latestFlg' => $latestFlg,
+        ];
+
+        return view('attendance-list',$param);
     }
 }

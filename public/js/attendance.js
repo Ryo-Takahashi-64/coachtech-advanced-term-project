@@ -2,13 +2,13 @@
 function actibityControl() {
   const back__item = document.getElementById('back__item');
   const next__item = document.getElementById('next__item');
-  // oldestYmFlgが'1'(最も古い勤怠の年月)の場合
-  if (Laravel.oldestYmFlg === '1') {
+  // oldestFlgが'1'(最も古い勤怠の年月)の場合
+  if (Laravel.oldestFlg === '1') {
     // 「<」ボタンを非活性にする
     back__item.classList.toggle('disabled__item');
   }
-  // latestYmFlgが'1'(当年月)の場合
-  if (Laravel.latestYmFlg === '1'){
+  // latestFlgが'1'(当年月)の場合
+  if (Laravel.latestFlg === '1'){
     // 「>」ボタンを非活性にする
     next__item.classList.toggle('disabled__item');
   }
