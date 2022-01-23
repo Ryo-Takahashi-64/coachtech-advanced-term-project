@@ -29,8 +29,8 @@ COACHTECH advancedターム　勤怠管理システム「Atte(アット)」
         * 初期表示は当月の一覧です。
 
 ## 環境
-* Laravel Framework 8.76.2
-* mysql  Ver 15.1
+* Laravel Framework: 8.76.2
+* mysql server version: 10.4.20
 
 ## 文責
 * 作成者：高橋諒
