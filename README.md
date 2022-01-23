@@ -1,13 +1,17 @@
 # coachtech-advanced-term-project
 COACHTECH advancedターム　勤怠管理システム「Atte(アット)」
+
+## プロジェクト概要
 [COACHTECH](https://coachtech.site/)のadvancedタームにて作成し、
+
 コードをgithub、及びサイトをHEROKUで公開しています。
+
 「Atte」に会員登録を行ったユーザの勤怠管理を行います。
 
-##デモ
+## デモ
 ![デモ](./image.png)
 
-##使い方
+## 使い方
 [Atte](http://dry-meadow-82347.herokuapp.com/)
 
 1. 上記サイトにアクセスします。
@@ -24,3 +28,5 @@ COACHTECH advancedターム　勤怠管理システム「Atte(アット)」
         * ログインしたユーザの月毎の勤怠一覧を表示します。
         * 初期表示は当月の一覧です。
 
+## 文責
+* 作成者：高橋諒
