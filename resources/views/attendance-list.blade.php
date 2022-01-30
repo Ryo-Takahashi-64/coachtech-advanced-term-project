@@ -5,7 +5,7 @@
 @endpush
 
 @section('content')
-    <h2 class="name__item">{{Str::limit($user->name,20)}}さん</h2>
+    <h2 class="name__item"></h2>
     <div class="date__change__item">
       <div class="date__link__item">
         <a id="back__item" href="{{route('attendance.user',['ymdItem' => $ymdItem, 'ymdRequest' => 'back'])}}"><</a>
