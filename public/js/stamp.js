@@ -4,6 +4,7 @@ function actibityControl() {
   const atteEndTarget = document.getElementById('atte__end');
   const restStartTarget = document.getElementById('rest__start');
   const restEndTarget = document.getElementById('rest__end');
+
   // 勤務中フラグが'1'の場合
   if (Laravel.atte_flg === '1') {
     // 勤務開始ボタンを非活性にする

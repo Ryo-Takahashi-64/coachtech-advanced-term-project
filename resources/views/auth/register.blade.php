@@ -45,9 +45,9 @@
                 <x-input id="password_confirmation" type="password" name="password_confirmation" placeholder="確認用パスワード" required />
             </div>
 
-            <x-button>
+            <x-submit>
                 {{ __('会員登録') }}
-            </x-button>
+            </x-submit>
 
             <div class="text-center mt-6">
                 <p class="text-gray-400">アカウントをお持ちの方はこちらから</p>
