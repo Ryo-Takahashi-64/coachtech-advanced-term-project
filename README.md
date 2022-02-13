@@ -32,5 +32,45 @@ COACHTECH advancedターム　勤怠管理システム「Atte(アット)」
 * Laravel Framework: 8.76.2
 * mysql server version: 10.4.20
 
+## 環境構築
+### MAMP/XAMPPの場合
+#### (Mac)
+* MAMPのインストール
+　[MAMPのダウンロードページ](https://www.mamp.info/en/downloads/)
+* Composer
+   [Composerダウンロードページ](https://getcomposer.org/download/)
+   * Manual Downloadから2.〇.〇の最新バージョンのリンクをクリックしてダウンロード
+   * 下記コマンドを実行
+
+------------------------------------------
+
+ cd Downloads
+ 
+ sudo mv composer.phar /usr/local/bin/composer
+ 
+ chmod a+x /usr/local/bin/composer
+
+------------------------------------------
+
+#### (Windows)
+* XAMPPのインストール
+　[XAMPPのダウンロードページ](https://www.apachefriends.org/jp/index.html)
+* Composerのインストーラをダウンロードしてインストール
+　[Composerダウンロードページ](https://getcomposer.org/doc/00-intro.md#installation-windows)
+   * 「Installation – WindowsのUsing the Installer」の文章中の「Composer-Setup.exe」からダウンロード
+
+     ※インストール時のPHP設定画面では、XAMPPのインストールフォルダ内「xampp\php\php.exe」を選択する
+
+#### MAMP/XAMPPインストール後
+MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
+
+### dockerの場合
+下記サイトを参考にツールをダウンロードする
+
+[【超入門】20分でLaravel開発環境を爆速構築するDockerハンズオン](https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4)
+
+1. リモートリポジトリの作成は行わず、プロジェクト内「00_Document/02_docker環境構築ファイルのサンプル/」を参考にフォルダを作成する
+2. 00_Documentフォルダ以外はプロジェクトディレクトリのbackendフォルダにgit cloneする
+
 ## 文責
 * 作成者：高橋諒
