@@ -12,7 +12,7 @@ COACHTECH advancedターム　勤怠管理システム「Atte(アット)」
 ![デモ](./image.png)
 
 ## 使い方
-[Atte](http://dry-meadow-82347.herokuapp.com/)
+[Atte](http://warm-gorge-44259.herokuapp.com/)
 
 1. 上記サイトにアクセスします。
 2. 会員登録より会員登録を行います。(登録済の場合、ログインページからログインします)
