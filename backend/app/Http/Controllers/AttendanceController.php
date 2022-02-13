@@ -193,7 +193,7 @@ class AttendanceController extends Controller
         return back()->with($param);
     }
 
-    public function getAttendance(Request $request)
+    public function getUserAttendance(Request $request)
     {
         // 変数を取得
         $nowYm = Carbon::now()->format('Y-m');  // 当年月
@@ -253,10 +253,10 @@ class AttendanceController extends Controller
             'latestFlg' => $latestFlg,
         ];
 
-        return view('date',$param);
+        return view('attendance-list',$param);
     }
 
-    public function getUserAttendance(Request $request)
+    public function getAttendance(Request $request)
     {
         // 変数を取得
         $nowYmd = Carbon::now()->format('Y-m-d');  // 当日日付
@@ -316,6 +316,6 @@ class AttendanceController extends Controller
             'latestFlg' => $latestFlg,
         ];
 
-        return view('attendance-list',$param);
+        return view('date',$param);
     }
 }
