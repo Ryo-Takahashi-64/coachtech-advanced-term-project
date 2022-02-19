@@ -72,5 +72,13 @@ MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
 1. リモートリポジトリの作成は行わず、プロジェクト内「00_Document/02_docker環境構築ファイルのサンプル/」を参考にフォルダを作成する
 2. 00_Documentフォルダ以外はプロジェクトディレクトリのbackendフォルダにgit cloneする
 
+### AWSの場合
+下記サイトを参考にEC2、RDSのセットアップを行う
+
+[EC2・RDSでLaravelの環境構築【PHP・MySQL・Nginx】](https://qiita.com/yuta_sawamura/items/e925ac687eddfef359fa)
+
+### メール認証
+メール認証のテストは[mailtrap](https://mailtrap.io/)を使用する
+
 ## 文責
 * 作成者：高橋諒
