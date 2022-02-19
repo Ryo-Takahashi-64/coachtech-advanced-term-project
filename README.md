@@ -77,8 +77,11 @@ MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
 
 [EC2・RDSでLaravelの環境構築【PHP・MySQL・Nginx】](https://qiita.com/yuta_sawamura/items/e925ac687eddfef359fa)
 
-### メール認証
-メール認証のテストは[mailtrap](https://mailtrap.io/)を使用する
+## テスト方法
+### 打鍵によるテスト
+打鍵によってテストを行う
+#### メール認証テスト
+メール認証のテストは[mailtrap](https://mailtrap.io/)を使用
 
 ## 文責
 * 作成者：高橋諒
