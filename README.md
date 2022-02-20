@@ -77,6 +77,16 @@ MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
 
 [EC2・RDSでLaravelの環境構築【PHP・MySQL・Nginx】](https://qiita.com/yuta_sawamura/items/e925ac687eddfef359fa)
 
+### ログイン認証について
+ログイン認証ページは1段階認証と2段階認証(メール)があります。
+
+AuthContollerのgetLogin()内のreturnを切り替えることで2段階認証に切り替えることができます。
+
+2段階認証ページを使用する場合、別途.envのメール設定を修正する必要があります。
+
+* auth.login：1段階認証ページ
+* auth.login-auth-second：2段階認証ページ
+
 ## テスト方法
 ### 打鍵によるテスト
 打鍵によってテストを行う
@@ -91,4 +101,3 @@ MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
 
 ## 文責
 * 作成者：高橋諒
-
