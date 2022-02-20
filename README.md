@@ -75,6 +75,8 @@ MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
 ### AWSの場合
 下記サイトを参考にEC2、RDSのセットアップを行う
 
+参考にAWSの構成図は00.documentのAWSフォルダに置いてあります。
+
 [EC2・RDSでLaravelの環境構築【PHP・MySQL・Nginx】](https://qiita.com/yuta_sawamura/items/e925ac687eddfef359fa)
 
 ### ログイン認証について
