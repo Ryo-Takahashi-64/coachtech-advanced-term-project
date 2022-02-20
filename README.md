@@ -84,6 +84,8 @@ AuthContollerのgetLogin()内のreturnを切り替えることで2段階認証�
 
 2段階認証ページを使用する場合、別途.envのメール設定を修正する必要があります。
 
+※Herokuデフォルトは1段階認証としています。
+
 * auth.login：1段階認証ページ
 * auth.login-auth-second：2段階認証ページ
 
@@ -94,7 +96,7 @@ AuthContollerのgetLogin()内のreturnを切り替えることで2段階認証�
 メール認証のテストは[mailtrap](https://mailtrap.io/)を使用
 
 ### phpunitによるテスト
-一部テストケースのみ作成(circle CI学習用)
+一部テストケースのみ作成(circle CI用)
 
 ### circle CIによるテスト
 今後追加予定
