@@ -8,11 +8,11 @@
     <h2 class="name__item"></h2>
     <div class="date__change__item">
       <div class="date__link__item">
-        <a id="back__item" href="{{route('attendance.user',['ymdItem' => $ymdItem, 'ymdRequest' => 'back'])}}"><</a>
+        <a id="back__item" href="{{route('attendance',['ymdItem' => $ymdItem, 'ymdRequest' => 'back'])}}"><</a>
       </div>
       <h2 class="date__item">{{$ymdItem}}</h2>
       <div class="date__link__item">
-        <a id="next__item" href="{{route('attendance.user',['ymdItem' => $ymdItem, 'ymdRequest' => 'next'])}}">></a>
+        <a id="next__item" href="{{route('attendance',['ymdItem' => $ymdItem, 'ymdRequest' => 'next'])}}">></a>
       </div>
     </div>
     <table>
