@@ -83,6 +83,12 @@ MAMP/XAMPP内のhtdocsフォルダにソースをgit cloneする
 #### メール認証テスト
 メール認証のテストは[mailtrap](https://mailtrap.io/)を使用
 
+### phpunitによるテスト
+一部テストケースのみ作成(circle CI学習用)
+
+### circle CIによるテスト
+今後追加予定
+
 ## 文責
 * 作成者：高橋諒
 
